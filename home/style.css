@@ -206,3 +206,75 @@
     background: #2563eb;
     color: white;
 }
+
+/* =========================
+   Mobile Responsive (<=768px)
+========================= */
+@media (max-width: 768px) {
+
+    /* ----- Layout ----- */
+    .container {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+    }
+
+    main {
+        height: calc(100vh - 64px - 72px);
+    }
+
+	.query-btn {
+		width: 120px;
+		height: 40px;
+	}
+
+    /* ----- Time Bar ----- */
+    .time-bar {
+        top: auto;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 6px;
+        gap: 4px;
+    }
+
+    .time-bar button {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    /* ----- Map ----- */
+    .map {
+        height: 100%;
+    }
+
+    .map-image {
+        object-position: center;
+    }
+
+    /* =========================
+       Heatmap Scaling (핵심)
+    ========================= */
+
+    .heat {
+        /* 모바일에서는 heat를 살짝 줄임 */
+        width: calc(var(--size) * 0.7);
+
+        /* 퍼포먼스 + 터치 안정성 */
+        will-change: transform, opacity;
+        pointer-events: none;
+    }
+
+    /* 시각적으로 너무 뭉개지지 않게 */
+    .heat.active {
+        opacity: 0.85;
+    }
+}
